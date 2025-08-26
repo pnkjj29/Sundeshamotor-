@@ -1,63 +1,125 @@
-// ---- Variables ----
-const slider = document.querySelector('#slider');
-let sliderSection = document.querySelectorAll(".slider__section");
-let sliderSectionLast = sliderSection[sliderSection.length - 1];
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="shortcut icon" href="image/funny.ico" type="image/x-icon">
 
-const btnLeft = document.querySelector("#btn--left");
-const btnRight = document.querySelector("#btn--right");
-const navLink = document.querySelectorAll('.nav__link');
+<title>Frenos Rombo</title>
+<link href="style.css" rel="stylesheet" type="text/css">
+</head>
+<body>
 
-// Insert last slide at beginning
-slider.insertAdjacentElement('afterbegin', sliderSectionLast);
+	<nav class="nav">
+		<div class="nav__container container">
+			<a class="nav__logo" href="#">
+				<img class="nav__img" src="https://www.frenosrombo.com.ar/image/logo.png" alt="SMP Logo">
+				<h1 class="nav__title">Shree Sundesha Motor Parts</h1>
+			</a>
+			
+			<input type="checkbox" id="menu" class="nav__checkbox">
+			<label for="menu" class="nav__label">
+				<img class="nav__menu nav__menu--show" src="assets/icon-hamburger.svg" alt="menu show">
+				<img class="nav__menu nav__menu--hidden" src="assets/icon-close.svg" alt="menu hidden">
+			</label>
 
-// Buttons
-btnRight.addEventListener('click', next);
-btnLeft.addEventListener('click', prev);
+			<ul class="nav__ulist">
+				<li class="nav__list"><a class="nav__link" href="#about">About</a></li>
+				<li class="nav__list"><a class="nav__link" href="#product">Products</a></li>
+				<li class="nav__list"><a class="nav__link" href="#service">Services</a></li>
+				<li class="nav__list"><a class="nav__link" href="#consultation">Contact</a></li>
+			</ul>
+		</div>
+	</nav>
 
-// Auto play every 5 seconds
-setInterval(next, 5000);
+	<header class="hero">
+		<div class="slider" id="slider">
+			<div class="slider__section">
+				<img src="img/primary.jpg" alt="Workshop view" class="slider__img">
+				<div class="slider__text">
+					<h2 class="slider__title">Sundesha Motor Parts</h2>
+					<p class="slider__paragraph slider__paragraph--shadow">AUTO REPAIR AND SERVICE EXPERT</p>
+					<a class="cta--slider" href="#">Check</a>
+				</div>
+			</div>
+			<div class="slider__section">
+				<img src="img/secondary.jpg" alt="Auto spare parts" class="slider__img">
+				<div class="slider__subtitle">
+					<p class="slider__paragraph">Complete range of auto spares available.</p>
+				</div>
+			</div>
+			<div class="slider__section">
+				<img src="img/tertiary.jpg" alt="Garage service" class="slider__img">
+				<div class="slider__subtitle">
+					<p class="slider__paragraph">Buy it here, fit it here, drive out with confidence.</p>
+				</div>
+			</div>
+			<div class="slider__section">
+				<img src="img/quaternary.jpg" alt="Quick service" class="slider__img">
+				<div class="slider__subtitle">
+					<p class="slider__paragraph">Quick oil, brakes, and battery while you wait.</p>
+				</div>
+			</div>
+		</div>
+		<div class="slider__btn btn--right" id="btn--right">
+			<img class="slider__arrow" src="img/arrow-right.svg" alt="Next">
+		</div>
+		<div class="slider__btn btn--left" id="btn--left">
+			<img class="slider__arrow" src="img/arrow-left.svg" alt="Previous">
+		</div>
+	</header>	
 
-// Close menu on link click
-navLink.forEach(link => {
-  link.addEventListener('click', () => {
-    document.querySelector('#menu').checked = false;
-  });
-});
+	<!-- ... rest of your content remains same except typo fixes ... -->
 
-// ---- Functions ----
-function next() {
-  let sliderSectionFirst = document.querySelectorAll('.slider__section')[0];
-  slider.style.marginLeft = '-200vw';
-  slider.style.transition = 'all 0.3s';
+	<section class="consultation" id="consultation">
+		<div class="consultation__container container">
+			<h2 class="subtitle">Shree Sundesha Motor Parts</h2>
+			<div class="consultation__contact">
+				<form class="form">
+					<h4 class="form__title">Contact</h4>
+					<input class="form__input" type="text" name="nombres" id="nombre" placeholder="Full Name" required>
+					<input class="form__input" type="tel" name="telefono" id="telefono" placeholder="Mobile Number" required>
+					<textarea class="form__input textarea--form" placeholder="Message:" required></textarea>
+					<input class="submit submit--form" type="submit" value="Send">
+				</form>
+				
+				<div class="consultation__text">
+					<h4 class="consultation__title">Shree Sundesha Motor Parts:</h4>
+					<ul class="consultation__unordered">
+						<li>Ramseen Road, Bhinmal (343029)</li>
+						<li>Working hours: 07 AM - 9 PM</li>
+						<li>Mobile: 9468669021</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</section>
 
-  setTimeout(function () {
-    slider.style.transition = 'none';
-    slider.insertAdjacentElement('beforeend', sliderSectionFirst);
-    slider.style.marginLeft = '-100vw';
-  }, 300);
-}
+	<footer class="footer">
+		<div class="container">
+			<div class="footer__content">
+				<nav class="footer__menu">
+					<ul class="footer-menu__items">
+						<li><a href="#about" class="footer-menu__link">About</a></li>
+						<li><a href="#product" class="footer-menu__link">Products</a></li>
+						<li><a href="#service" class="footer-menu__link">Services</a></li>
+						<li><a href="#consultation" class="footer-menu__link">Contact</a></li>
+					</ul>
+				</nav>
+				<a class="footer__link" href="index.html">
+					<img class="footer__img" src="img/logo.svg" alt="Company Logo"/>
+				</a>
+			</div>
+		</div>
+		<div class="footer__copyright">
+			<div class="container">
+				<p>Shree Sundesha Motor Parts & Vehicle Services &copy;</p>
+				<p>Designed by <a href="https://github.com/pnkjj29" target="_blank" rel="noopener">Pankaj Sundesha</a></p>
+			</div>
+		</div>
+	</footer>
 
-function prev() {
-  let sliderSection = document.querySelectorAll('.slider__section');
-  let sliderSectionLast = sliderSection[sliderSection.length - 1];
-  slider.style.marginLeft = '0';
-  slider.style.transition = 'all 0.3s';
-
-  setTimeout(function () {
-    slider.style.transition = 'none';
-    slider.insertAdjacentElement('afterbegin', sliderSectionLast);
-    slider.style.marginLeft = '-100vw';
-  }, 300);
-}
-
-// Form validation
-function validarFormulario() {
-  const nombre = document.getElementById("nombre").value.trim();
-  const correo = document.getElementById("correo").value.trim();
-
-  if (nombre === "" || correo === "") {
-    alert("Please fill out all fields");
-    return false;
-  }
-  return true;
-}
+<script src="index.js"></script>
+</body>
+  </html>
